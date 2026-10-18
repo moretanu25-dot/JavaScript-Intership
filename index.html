@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory Dashboard</title>
+</head>
+<body>
+    <h1>Interactive Product Inventory & Analytics Dashboard</h1>
+    <p>Open the browser console to view inventory analytics.</p>
+
+    <script>
+        console.log("--- Initializing Inventory System ---");
+
+        // 1. Initial inventory: array of product objects
+        const inventory = [
+            { name: "Laptop", price: 800 },
+            { name: "Mouse", price: 25 }
+        ];
+
+        // 2. Function to assign a category using if...else and switch
+        function getCategory(price) {
+            if (price < 0) {
+                return "Invalid";
+            } else if (price < 50) {
+                return "Budget";
+            } else if (price < 200) {
+                return "Standard";
+            } else {
+                return "Premium";
+            }
+        }
+
+        // 3. Regular function with a default parameter
+        function calculateTotal(items, taxRate = 0) {
+            let total = 0;
+
+            for (const item of items) {
+                if (!Number.isFinite(item.price) || item.price < 0) {
+                    continue;
+                }
+
+                total += item.price;
+            }
+
+            return total + total * taxRate;
+        }
+
+        // 4. Arrow function to apply a discount
+        const applyDiscount = (price, discountRate = 0) =>
+            price * (1 - discountRate);
+
+        // 5. Ask the user for a new product
+        const inputName = prompt("Enter the new product name:", "Monitor");
+        const inputPrice = prompt("Enter the product price:", "150");
+
+        const productName =
+            inputName === null ? "" : inputName.trim();
+        const productPrice =
+            inputPrice === null || inputPrice.trim() === ""
+                ? NaN
+                : Number(inputPrice);
+
+        if (productName === "") {
+            console.log("Input cancelled or invalid: product name is required.");
+        } else if (!Number.isFinite(productPrice) || productPrice < 0) {
+            console.log("Invalid price. Please enter a non-negative number.");
+        } else {
+            inventory.push({
+                name: productName,
+                price: productPrice
+            });
+            console.log(
+                `[Prompt executed: User adds "${productName}" at "$${productPrice}"]`
+            );
+        }
+
+        // 6. Process the inventory using forEach()
+        console.log("\n--- Processing Inventory Roster (forEach) ---");
+
+        inventory.forEach((item) => {
+            let category;
+
+            // switch block assigns the category badge
+            switch (getCategory(item.price)) {
+                case "Budget":
+                    category = "Budget";
+                    break;
+                case "Standard":
+                    category = "Standard";
+                    break;
+                case "Premium":
+                    category = "Premium";
+                    break;
+                default:
+                    category = "Invalid";
+            }
+
+            console.log(
+                `* Item: ${item.name} ($${item.price}) -> Category: ${category}`
+            );
+        });
+
+        // 7. Financial analytics
+        console.log("\n--- Financial Analytics ---");
+
+        const totalValue = calculateTotal(inventory);
+        console.log(`Total Inventory Value: $${totalValue}`);
+
+        // 8. filter(): products under $200
+        const affordableItems = inventory
+            .filter((item) => item.price < 200)
+            .map((item) => item.name);
+
+        console.log(
+            "Filtered Affordable Items (Under $200):",
+            JSON.stringify(affordableItems)
+        );
+
+        // 9. map(): create a formatted report
+        const reportList = inventory.map(
+            (item) => `${item.name.toUpperCase()}: $${item.price}`
+        );
+
+        console.log(
+            "Formatted Report List:",
+            JSON.stringify(reportList)
+        );
+
+        // 10. Demonstrate discount and tax calculations
+        const discountedPrice = applyDiscount(800, 0.10);
+        console.log(
+            `Laptop price after 10% discount: $${discountedPrice}`
+        );
+
+        const totalWithTax = calculateTotal(inventory, 0.05);
+        console.log(
+            `Total Inventory Value with 5% tax: $${totalWithTax}`
+        );
+    </script>
+</body>
+</html>
