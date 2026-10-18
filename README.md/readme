@@ -1,0 +1,83 @@
+JavaScript Internship
+
+About This Repository
+
+This repository contains my JavaScript internship assignments and capstone mini project. It demonstrates my learning and practical implementation of core JavaScript concepts.
+
+Assignments
+
+Assignment 1: Variables, Data Types, and Console Operations
+
+- Variables using "var", "let", and "const"
+- JavaScript data types
+- Console output and "typeof"
+
+Assignment 2: Operators, Expressions, and Input Handling
+
+- Arithmetic and assignment operators
+- User input using "prompt()"
+- Type conversion using "Number()"
+- Tip calculator
+
+Assignment 3: Conditional Logic Implementation
+
+- "if...else" statements
+- "switch" statements
+- Ternary operator
+- Grade and pass/fail evaluation
+
+Assignment 4: Loop Control Structures
+
+- "for", "while", and "do...while" loops
+- "break" and "continue"
+- Multiplication table and number searching
+
+Assignment 5: Function Architecture and Scope
+
+- Standard and arrow functions
+- Default parameters
+- Function scope and block scope
+
+Assignment 6: Arrays, Objects, and Core Methods
+
+- Arrays of objects
+- "forEach()", "filter()", and "map()"
+- Product filtering and formatted reports
+
+Capstone Mini Project
+
+Project Title: Interactive Product Inventory & Analytics Dashboard
+
+The project combines JavaScript concepts in a product inventory application.
+
+Features
+
+- Accepts product details using "prompt()"
+- Validates product names and prices
+- Assigns Budget, Standard, and Premium categories
+- Calculates total inventory value
+- Demonstrates tax and discount calculations
+- Filters affordable products
+- Generates formatted product reports
+
+Technologies Used
+
+- HTML
+- JavaScript
+- Visual Studio Code
+- Node.js
+- GitHub
+
+How to Run
+
+- Run JavaScript assignment files using Node.js in the terminal.
+- Open the mini project's "index.html" file in a web browser.
+- Enter product details when prompted and open the browser console to view the analytics.
+
+Learning Outcomes
+
+Through these assignments and the mini project, I practiced JavaScript variables, data types, operators, conditions, loops, functions, scope, arrays, objects, and array methods.
+
+Author
+
+JavaScript Internship Student
